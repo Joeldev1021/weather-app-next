@@ -8,3 +8,15 @@ export interface DayType {
     applicable_date: string
 }
 
+
+export interface TodayType {
+    visibility: number,
+    air_pressure: number,
+    wind_speed:number,
+    humidity:number
+}
+
+export interface TodayProps {
+    name: string,
+    value: number
+}
