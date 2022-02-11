@@ -1,0 +1,53 @@
+.banner {
+    background:#1E213A;
+    padding-top: 8rem;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    opacity: 0.1;
+    position: absolute;
+    z-index: 100;
+}
+
+.banner :nth-child(1) {
+    opacity: 1;
+    margin:auto;
+    left: 0;
+    right: 0;
+    Top:134px;
+    width: 150px;
+}
+.banner :nth-child(2) {
+    margin:auto;
+    width: 176px;
+    top: 58px;
+    left: -91.93px;
+}
+
+.banner :nth-child(3) {
+    width: 176px;
+    top:69px;
+    left: 276.56px;
+}
+
+.banner :nth-child(4) {
+    top: 30rem;
+    left: -11rem;
+    Top :199.32px;
+}
+
+.banner :nth-child(5) {
+   top: 30rem;
+   Width :127.45px;
+   right: -10px;
+}
+.temp {
+    color:white;
+    top: 30rem;
+    z-index: 100;
+    font-size: 2rem;
+}
