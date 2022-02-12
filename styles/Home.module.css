@@ -9,7 +9,7 @@
   grid-gap: 3rem;
   margin: 0 auto;
   width: 100%;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 .grid-today {
@@ -18,5 +18,13 @@
   margin:auto;
   grid-gap:2rem;
   justify-content: center;
+}
+
+.sub-title {
+  color: white;
+  font-size: 2.4rem;
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
 }
 
