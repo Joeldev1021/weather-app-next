@@ -1,0 +1,26 @@
+
+
+.modal-form button {
+    background:#3C47E9;
+    outline: none;
+    color:white;
+    border: none;
+    margin-left: 1rem;
+    padding: 1rem 2rem;
+}
+
+.modal-form input {
+    background:none;
+    border: white 1px solid;
+    padding: 0.8rem ;
+    width: 252px;
+}
+
+.modal-close {
+    color:white;
+    position: absolute;
+    top: 5px;
+    right:15px;
+    font-size: 2rem;
+    font-weight: bold;
+}
