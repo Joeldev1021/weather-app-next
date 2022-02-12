@@ -5,7 +5,26 @@
     justify-content: space-between;
     height: 5rem;
     margin:auto;
+    top:1rem;
     left: 0;
     right: 0;
     z-index: 100;
+}
+
+.btn-location {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 2rem;
+    background:#6E707A;
+    outline: none;
+    border: none;
+    color:white;
+}
+.btn-search {
+    width: 16rem;
+    height: 4rem;
+    background:#6E707A;
+    color:white;
+    font-size: 1.6rem;
 }
