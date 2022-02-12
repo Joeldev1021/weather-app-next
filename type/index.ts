@@ -18,5 +18,13 @@ export interface TodayType {
 
 export interface TodayProps {
     name: string,
-    value: number
+    value: number,
+    measure: string
+}
+
+export interface TodayInterface {
+    data: TodayProps[],
+    weather_state_name: string,
+    the_temp: number,
+    applicable_date: string
 }
