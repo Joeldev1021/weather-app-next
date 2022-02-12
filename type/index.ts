@@ -3,8 +3,7 @@ export interface DayType {
     the_temp: number,
     max_temp: number,
     min_temp: number,
-    aplicate_date: string,
-    whater_state_name: string,
+    weather_state_name: string,
     applicable_date: string
 }
 
@@ -28,3 +27,7 @@ export interface TodayInterface {
     the_temp: number,
     applicable_date: string
 }
+export type typeImgWeather = {
+    [key:string]:string
+}
+
