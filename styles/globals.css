@@ -19,3 +19,21 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.modal-search {
+    position: absolute;
+    width:  100%;
+    height: 100%;
+    top: 0;
+    background:#1E213A;
+    text-align: center;
+    z-index: 200;
+    padding-top: 5rem;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+
+.show-modal {
+    transform: translateX(0%); 
+}
