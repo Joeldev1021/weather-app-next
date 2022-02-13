@@ -37,3 +37,9 @@ a {
 .show-modal {
     transform: translateX(0%); 
 }
+
+@media screen and (min-width: 600px) {
+    .modal-search {
+      width:25%;
+    }
+}
