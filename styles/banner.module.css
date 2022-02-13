@@ -1,12 +1,13 @@
 .banner {
     background-image: url('../public/assets/Cloud-background.png');
     background-repeat: no-repeat;
-    background-position: center;
-    background-color: #1e213a;    
+    background-position: top;
+    background-color: #1e213a; 
     position: relative;
     min-height: 100vh;
     width: 100%;
     overflow: hidden;
+    padding-top: 2rem;
 }
 
 .banner::before {
@@ -19,18 +20,24 @@
     background-color: rgba(30, 33, 58, 0.9);
 }
 
+
 .main {
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position:absolute;
-    top: 20rem;
+    top: 9rem;
     left: 0;
     right: 0;
     margin:auto;
     text-align: center;
     color: white;
+    font-family: 'Raleway', sans-serif;
+}
+.main h2 {
+    font-size: 3.6rem;
+    color:#A09FB1;
 }
 
 .img {
@@ -39,8 +46,48 @@
 } 
 
 .temp {
-    color:white;
-    top: 30rem;
+    margin: auto;
     z-index: 100;
-    font-size: 2rem;
+    font-size: 10rem;
+    font-family: "Raleway", sans-serif;
 }
+
+.c{
+    font-size: 7rem;
+    color: #88869D;
+}
+
+.degrees-icon {
+    font-size: 2rem;
+    color:#88869D;
+    font-weight: bold;
+    position: relative;
+    top: -2.5rem;
+}
+
+.date {
+    font-size: 1.8rem;
+    color:#88869D;
+    
+}
+
+.date p {
+    font-family: "Raleway", sans-serif;
+}
+
+.point {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background:#88869D;
+    margin: 0px 10px;
+    margin-bottom: 4px;
+}
+
+.location i  {
+   padding-right: 2rem; 
+}
+
+
+    
