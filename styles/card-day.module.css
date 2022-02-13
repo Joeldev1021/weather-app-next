@@ -1,0 +1,24 @@
+.card-day {
+    width :120px;
+    height: 177px;
+    background:#1E213A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    color:white;
+}
+
+.card-day-img {
+    width: 56px;
+}
+
+.card-day-temp {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding: 0 1rem;
+}
+
+
