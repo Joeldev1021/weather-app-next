@@ -20,6 +20,7 @@
     outline: none;
     border: none;
     color:white;
+    cursor: pointer;
 }
 .btn-search {
     width: 16rem;
@@ -27,5 +28,6 @@
     background:#6E707A;
     color:white;
     font-size: 1.6rem;
+    cursor: pointer;
 }
 

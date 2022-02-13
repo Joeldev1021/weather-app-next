@@ -1,20 +1,22 @@
-.container {
-  padding: 0 2rem;
-  background:#1E213A;
+.App {
+  display: grid;
+  grid-template-columns: 1fr;
 }
+
 
 .container-grid {
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 3rem;
-  margin: 0 auto;
-  width: 100%;
   padding: 2rem;
+  margin:auto;
+  justify-content: center;
 }
 
 .grid-today {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: 1fr;
   margin:auto;
   grid-gap:2rem;
   justify-content: center;
@@ -28,3 +30,21 @@
   padding: 1rem;
 }
 
+@media screen and (min-width: 600px) {
+  .App {
+    grid-template-columns: 25% 75%;
+  } 
+  .grid-today {
+    grid-template-columns: 1fr 1fr;
+  }
+  .container-grid {
+    grid-template-columns: repeat(5, 1fr);
+    width: 90%;
+    padding: 1rem;
+  }
+  .section-grid {
+    padding-top: 4rem;
+    width: 80%; 
+    margin:auto;
+  }
+}
