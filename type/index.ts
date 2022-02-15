@@ -31,3 +31,9 @@ export type typeImgWeather = {
     [key:string]:string
 }
 
+export type DataWeather = {
+    dataDays: DayType[],
+    dataToday: TodayInterface,
+    title: string
+}
+
