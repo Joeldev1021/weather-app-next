@@ -1,10 +1,17 @@
+import { typeImgWeather } from "../type"
+
 interface Props {
-    data:any[] 
+    data: {
+        consolidated_weather: any[],
+        title: string
+    } 
 }
 
+
 export function destruData({data}:Props) {
-  return  data.map(d => {
-        const {the_temp, max_temp, min_temp, applicable_date, id, weather_state_name} = d
+    // filter data the days and delete today
+  const dataDays =  data.consolidated_weather.map((d,index) => {
+         const {the_temp, max_temp, min_temp, applicable_date, id, weather_state_name} = d
         return {
             id,
             the_temp,
@@ -13,23 +20,60 @@ export function destruData({data}:Props) {
             weather_state_name, 
             applicable_date
         }
-    })
+    }).filter((d, index)=> index > 0)
+// data today
+   const { visibility, air_pressure, humidity, wind_speed, weather_state_name, the_temp, applicable_date} = data.consolidated_weather[0]
+
+// array data today 
+   const dataToday= {
+      data : [
+        {name:"Wind status", value:Math.round(wind_speed), measure:"mph"}, 
+        {name:"Humidity", value:humidity, measure:"%"},
+        {name: "visibility", value:Number.parseFloat(visibility).toFixed(1), measure:"miles"}, 
+        {name:"Air pressure", value:air_pressure, measure:"mb"} 
+    ],
+    weather_state_name,
+    the_temp,
+    applicable_date
+ }
+
+    return {
+        dataDays,
+        dataToday,
+        title: data.title,
+    }
 }
 
-export function destruDataToday({data}) {
-
-    const { visibility, air_pressure, humidity, wind_speed} = data
-
-    return [
-        {name: "visibility", value:Number.parseFloat(visibility).toFixed(1)}, 
-        {name:"wind status", value:Math.round(wind_speed)}, 
-        {name:"air pressure", value:air_pressure}, 
-        {name:"humidity", value:humidity}
-    ]
-
+export const imgWeather:typeImgWeather = {
+    "clear": "./assets/clear.png",
+    "hail": "./assets/hail.png",
+    "heavy cloud": "./assets/heavyCloud.png",
+    "heavy rain": "./assets/heavyRain.png",
+    "light cloud": "./assets/lightCloud.png",
+    "light rain": "./assets/lightRain.png",
+    "showers": "./assets/shower.png",
+    "snow": "./assets/snow.png",
+    "sleet": "./assets/Sleet.png",
+    "thunderstorm": "./assets/thunderstorm.png",
 }
 
-export const arrDay = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+/* export function destruDataToday({data}:PropToday) {
+
+    const { visibility, air_pressure, humidity, wind_speed, weather_state_name, the_temp, applicable_date} = data
+
+    return {
+      data : [
+        {name:"Wind status", value:Math.round(wind_speed), measure:"mph"}, 
+        {name:"Humidity", value:humidity, measure:"%"},
+        {name: "visibility", value:Number.parseFloat(visibility).toFixed(1), measure:"miles"}, 
+        {name:"Air pressure", value:air_pressure, measure:"mb"} 
+    ],
+    weather_state_name,
+    the_temp,
+    applicable_date
+ }
+} */
+
 
 /* 
 air_pressure: 1023
