@@ -14,7 +14,13 @@
     border: white 1px solid;
     padding: 0.8rem ;
     width: 252px;
+    color:white;
+    outline: none;
 }
+.modal-form input:focus {
+    border: white 2px solid;
+}
+
 
 .modal-close {
     color:white;
