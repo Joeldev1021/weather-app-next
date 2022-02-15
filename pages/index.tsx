@@ -6,19 +6,22 @@ interface Props {
   data : [] 
 }
 
+
 const Home: NextPage<Props> = ({data}) => {
+ 
   return (
     <Layout >
-      <App data={data}/>
+      <App data={data} /> 
     </Layout>
   )
 }
 
-export const getStaticProps:GetStaticProps<Props> = async () => {
-  const store = await fetch("http://localhost:3000/api/weather") 
-  const data = await store.json()
+export const getStaticProps: GetStaticProps = async () => {
+    
+  const response  = await fetch(`http://localhost:3000/api/weather`)
+  const data = await response.json()
   return {
-     props: {
+    props: {
       data
     }
   }
