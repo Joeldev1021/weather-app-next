@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 import App from '../components/App'
 import Layout from '../components/Layout'
 
@@ -8,7 +9,7 @@ interface Props {
 
 
 const Home: NextPage<Props> = ({data}) => {
- 
+  console.log(data) 
   return (
     <Layout >
       <App data={data} /> 
