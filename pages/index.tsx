@@ -9,7 +9,7 @@ interface Props {
 
 
 const Home: NextPage<Props> = ({data}) => {
-  console.log(data) 
+
   return (
     <Layout >
       <App data={data} /> 

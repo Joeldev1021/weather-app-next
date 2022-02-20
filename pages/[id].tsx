@@ -3,7 +3,9 @@ import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import  App  from '../components/App'
 const Index = () => {
+
     const {id} = useRouter().query
+
     const [data, setData] = useState(null)
     useEffect(() => {
       setData(null)
