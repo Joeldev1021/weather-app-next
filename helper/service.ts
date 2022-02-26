@@ -1,4 +1,4 @@
-import { typeImgWeather } from "../type"
+import { typeImgWeather } from "../type";
 
 interface Props {
     data: {
@@ -10,8 +10,8 @@ interface Props {
 
 export function destruData({data}:Props) {
     // filter data the days and delete today
-  const dataDays =  data.consolidated_weather.map((d,index) => {
-         const {the_temp, max_temp, min_temp, applicable_date, id, weather_state_name} = d
+    const dataDays =  data.consolidated_weather.map((d) => {
+        const {the_temp, max_temp, min_temp, applicable_date, id, weather_state_name} = d;
         return {
             id,
             the_temp,
@@ -19,29 +19,29 @@ export function destruData({data}:Props) {
             min_temp,
             weather_state_name, 
             applicable_date
-        }
-    }).filter((d, index)=> index > 0)
-// data today
-   const { visibility, air_pressure, humidity, wind_speed, weather_state_name, the_temp, applicable_date} = data.consolidated_weather[0]
+        };
+    }).filter((d, index)=> index > 0);
+    // data today
+    const { visibility, air_pressure, humidity, wind_speed, weather_state_name, the_temp, applicable_date} = data.consolidated_weather[0];
 
-// array data today 
-   const dataToday= {
-      data : [
-        {name:"Wind status", value:Math.round(wind_speed), measure:"mph"}, 
-        {name:"Humidity", value:humidity, measure:"%"},
-        {name: "visibility", value:Number.parseFloat(visibility).toFixed(1), measure:"miles"}, 
-        {name:"Air pressure", value:air_pressure, measure:"mb"} 
-    ],
-    weather_state_name,
-    the_temp,
-    applicable_date
- }
+    // array data today 
+    const dataToday= {
+        data : [
+            {name:"Wind status", value:Math.round(wind_speed), measure:"mph"}, 
+            {name:"Humidity", value:humidity, measure:"%"},
+            {name: "visibility", value:Number.parseFloat(visibility).toFixed(1), measure:"miles"}, 
+            {name:"Air pressure", value:air_pressure, measure:"mb"} 
+        ],
+        weather_state_name,
+        the_temp,
+        applicable_date
+    };
 
     return {
         dataDays,
         dataToday,
         title: data.title,
-    }
+    };
 }
 
 export const imgWeather:typeImgWeather = {
@@ -55,7 +55,11 @@ export const imgWeather:typeImgWeather = {
     "snow": "./assets/snow.png",
     "sleet": "./assets/Sleet.png",
     "thunderstorm": "./assets/thunderstorm.png",
-}
+};
+export const centigrateToFarenheit= (centigrate: number) => { 
+    return Math.round((centigrate * 9 / 5) + 32);
+};
+
 
 /* export function destruDataToday({data}:PropToday) {
 
