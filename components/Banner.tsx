@@ -1,5 +1,5 @@
-import React from "react";
-import { imgWeather } from "../helper/service";
+import React, { useEffect, useState } from "react";
+import { centigrateToFarenheit, imgWeather } from "../helper/service";
 import styles from "../styles/banner.module.css";
 import Header from "./Header";
 
@@ -9,17 +9,31 @@ interface Props {
     weatherName: string;
     location: string;
     handleModal: () => void;
+    isCentigrate: boolean;
 }
 
-const Banner = ({temperature, handleModal, day, weatherName, location}:Props) => {
+const Banner = ({temperature,isCentigrate, handleModal, day, weatherName, location}:Props) => {
     const img:string = imgWeather[weatherName.toLocaleLowerCase()];
+    const [tempToday, setTempToday] = useState(Math.round(temperature));
+
+    useEffect(() => {
+        changeTempToday(); 
+    }, [isCentigrate]);
+    
+    const changeTempToday = () => {
+        if(!isCentigrate){
+            setTempToday(centigrateToFarenheit(tempToday));
+        }else {
+            setTempToday(Math.round(temperature));
+        }
+    }; 
 
     return (
         <div className={styles.banner}>
             <Header handleModal={handleModal}/>
             <div className={styles.main}>
                 <img className={styles.img} src={img} alt={weatherName} />
-                <p className={styles.temp}>{Math.round(temperature)}<span className={styles['degrees-icon']}>o</span><span className={styles.c}>c</span></p>
+                <p className={styles.temp}>{tempToday}<span className={styles['degrees-icon']}>o</span><span className={styles.c}>c</span></p>
                 <h2>{weatherName}</h2>
                 <div className={styles.date}>
                     <p>Today <span className={styles.point}></span>{new Date(day).toDateString().split(" ").slice(0, 3).join(" ")}</p>
