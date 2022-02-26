@@ -1,5 +1,4 @@
 
-
 .modal-form button {
     background:#3C47E9;
     outline: none;
@@ -23,11 +22,25 @@
 
 
 .modal-close {
+    background:none;
+    border: none;
     color:white;
     position: absolute;
     top: 5px;
     right:15px;
     font-size: 2rem;
     font-weight: bold;
+    cursor: pointer;
+}
+
+.container-suggestion {
+    text-align: left;
+    color: white; 
+    padding: 2rem;
+}
+
+.container-suggestion p {
+    font-size: 1.6rem;
+    padding:2rem; 
     cursor: pointer;
 }
