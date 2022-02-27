@@ -14,7 +14,6 @@ module.exports = {
     ],
     rules: {
         'semi': ['error', 'always'],
-        'indent': ['error', 4],
-        'exhaustive-deps': 'off'
+        'indent': ['error', 4]
     }
 };
