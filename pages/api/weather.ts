@@ -7,7 +7,7 @@ export default  function weatherApi(req: NextApiRequest, res: NextApiResponse) {
         .then(response => response)
         .then(data => data.json())
         .then(data => {
-            res.json(data);
+            res.status(400).json(data);
         });     
 
 }

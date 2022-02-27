@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import type { GetStaticProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
 import App from '../components/App';
 import Layout from '../components/Layout';
