@@ -25,7 +25,7 @@ const Home: NextPage<Props> = () => {
 
     return (
         <Layout>
-            {!isLoading ? <App data={data} />: <Loading/>}
+            {isLoading ? <Loading/> : <App data={data} />}
         </Layout>
     );
 };
