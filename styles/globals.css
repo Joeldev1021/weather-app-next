@@ -31,6 +31,7 @@ a {
     padding-top: 5rem;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    overflow: hidden;
 }
 
 
@@ -42,4 +43,12 @@ a {
     .modal-search {
       width:25%;
     }
+}
+
+.fa-location-arrow {
+  transform: rotate(160deg);
+  font-size: 1.4rem;
+  background:rgba(255, 255, 255, 0.3);
+  padding: 0.9rem;
+  border-radius: 50%;
 }
