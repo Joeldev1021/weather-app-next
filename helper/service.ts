@@ -9,7 +9,6 @@ interface Props {
 
 
 export function destruData({data}:Props) {
-    // filter data the days and delete today
     const dataDays =  data.consolidated_weather.map((d) => {
         const {the_temp, max_temp, min_temp, applicable_date, id, weather_state_name} = d;
         return {
