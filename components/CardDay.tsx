@@ -16,10 +16,10 @@ const CardDay = ({dataDay, isCentigrate, index}:Props) => {
     const date = new Date(dataDay.applicable_date).toDateString().split(" ").slice(0, 3).join(" ");
     
     const img = imgWeather[dataDay.weather_state_name.toLocaleLowerCase()]; 
+
     const [maxTemp, setMaxTemp] = useState(Math.round(dataDay.max_temp));
     const [minTemp, setMinTemp] = useState(Math.round(dataDay.min_temp));
     
-    console.log(img);
     useEffect(() => {
         changeTemp();
     }, [isCentigrate]);
@@ -37,8 +37,8 @@ const CardDay = ({dataDay, isCentigrate, index}:Props) => {
     return (
         <div className={styles['card-day']}>
             <p key={dataDay.id}>{index == 0 ?"Tomorrow": date}</p>
-            {/*  <img className={styles['card-day-img']} src={img} alt={img} /> */} 
-            <Image height={60} width={60} src={img} alt={img}/> 
+            <img className={styles['card-day-img']} src={img} alt={img} /> 
+            {/*  <Image height={60} width={60} src={img} alt={img}/> */} 
             <div className={styles['card-day-temp']}>
                 <p>{maxTemp}<span className={styles.centigrate}>o</span>C</p>
                 <p>{minTemp}<span className={styles.centigrate}>o</span>C</p>
