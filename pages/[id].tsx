@@ -12,7 +12,7 @@ const Index = () => {
     useEffect(() => {
         setLoading(true);
         setData(null);
-        fetch(`http://localhost:3000/api/weatherData/${id}`)
+        fetch(`api/weatherData/${id}`)
             .then(res => res.json())
             .then(data => {
                 setData(data);
