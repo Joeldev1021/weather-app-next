@@ -44,17 +44,18 @@ export function destruData({data}:Props) {
 }
 
 export const imgWeather:typeImgWeather = {
-    "clear": "/assets/clear.png",
-    "hail": "/assets/hail.png",
-    "heavy cloud": "/assets/heavyCloud.png",
-    "heavy rain": "/assets/heavyRain.png",
-    "light cloud": "/assets/lightCloud.png",
-    "light rain": "/assets/lightRain.png",
-    "showers": "/assets/shower.png",
-    "snow": "/assets/snow.png",
-    "sleet": "/assets/Sleet.png",
-    "thunderstorm": "./assets/thunderstorm.png",
+    "clear": "/clear.png",
+    "hail": "/hail.png",
+    "heavy cloud": "/heavyCloud.png",
+    "heavy rain": "/heavyRain.png",
+    "light cloud": "/lightCloud.png",
+    "light rain": "/lightRain.png",
+    "showers": "/shower.png",
+    "snow": "/snow.png",
+    "sleet": "/Sleet.png",
+    "thunderstorm": "/thunderstorm.png",
 };
+
 export const centigrateToFarenheit= (centigrate: number) => { 
     return Math.round((centigrate * 9 / 5) + 32);
 };
