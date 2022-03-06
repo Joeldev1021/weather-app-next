@@ -16,7 +16,7 @@ const Home: NextPage<Props> = () => {
     
     useEffect(() => {
         setIsLoading(true);
-        fetch('http://localhost:3000/api/weather')
+        fetch('api/weather')
             .then(res => res.json())
             .then(res => setData(res))
             .catch(err => setError(true))
