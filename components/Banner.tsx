@@ -15,7 +15,7 @@ interface Props {
 const Banner = ({temperature,isCentigrate, handleModal, day, weatherName, location}:Props) => {
     const img:string = imgWeather[weatherName.toLocaleLowerCase()];
     const [tempToday, setTempToday] = useState(Math.round(temperature));
-
+    console.log(img);
     useEffect(() => {
         changeTempToday(); 
     }, [isCentigrate]);
