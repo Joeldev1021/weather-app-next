@@ -33,7 +33,7 @@ const CardDay = ({dataDay, isCentigrate, index}:Props) => {
             setMinTemp(Math.round(dataDay.min_temp));
         }
     };
-    
+    console.log(imgWeather[dataDay.weather_state_name.toLocaleLowerCase()], 'src'); 
     return (
         <div className={styles['card-day']}>
             <p key={dataDay.id}>{index == 0 ?"Tomorrow": date}</p>
@@ -48,4 +48,3 @@ const CardDay = ({dataDay, isCentigrate, index}:Props) => {
 };
 
 export default CardDay;
-

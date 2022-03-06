@@ -50,9 +50,9 @@ export const imgWeather:typeImgWeather = {
     "heavy rain": "/heavy-rain.png",
     "light cloud": "/light-cloud.png",
     "light rain": "/light-rain.png",
-    "showers": "/shower.png",
+    "showers": "/showers.png",
     "snow": "/snow.png",
-    "sleet": "/Sleet.png",
+    "sleet": "/sleet.png",
     "thunderstorm": "/thunderstorm.png",
 };
 
