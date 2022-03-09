@@ -35,14 +35,14 @@ const ModalSearch = ({handleModal}:ModalProps, ref:RefProps) => {
     };
     // get data
     const getData = async () => {
-        const response = await fetch(`http://localhost:3000/api/location/${query}`);
+        const response = await fetch(`api/location/${query}`);
         const data = await response.json();
         setCityId(data.data[0].woeid);
     }; 
 
     useEffect(() => {
         if(query.length > 0){
-            fetch(`http://localhost:3000/api/location/${query}`)
+            fetch(`api/location/${query}`)
                 .then(res => res.json())
                 .then(data => setSearchQuery(data.data));
         }else {
