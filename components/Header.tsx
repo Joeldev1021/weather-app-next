@@ -19,7 +19,7 @@ function Header({handleModal}:ModalProps) {
     };
     useEffect(() => {
         if(currentLocation){
-            fetch(`http://localhost:3000/api/currentPosition/${currentLocation}`) 
+            fetch(`/api/currentPosition/${currentLocation}`) 
                 .then(res => res.json())
                 .then(data => setCityId(data.data.woeid));
         }
