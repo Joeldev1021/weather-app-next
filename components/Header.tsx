@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useRouter } from 'next/router';
-import React, { forwardRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
 import { useLocation } from '../hooks/useLocation';
 import styles from "../styles/header.module.css";
 
@@ -7,30 +9,24 @@ type ModalProps ={
     handleModal: () => void;
 }
 
-
 function Header({handleModal}:ModalProps) {
     const [searchLocation, setSearchLocation ] = useState<boolean>(false); 
     const [cityId, setCityId] = useState<number>();
     const {currentLocation} = useLocation(searchLocation);
+    const { data ,loading, error } = useFetch(`/api/currentPosition/${currentLocation}`);
 
     const route = useRouter();
+
     const handleClick = () => {
         setSearchLocation(!searchLocation); 
     };
-    useEffect(() => {
-        if(currentLocation){
-            fetch(`/api/currentPosition/${currentLocation}`) 
-                .then(res => res.json())
-                .then(data => setCityId(data.data.woeid));
-        }
-    }, [currentLocation]);
 
     useEffect(() => {
-        if(cityId){
-            route.push(`/${cityId}`); 
+        if(data) {
+            route.push(`/${data.data.woeid}`);
         }
-    }, [cityId, route]);
-  
+    }, [data, route]);
+
     return (
         <header className={styles.header}>
             <button onClick={()=>handleModal()} className={styles['btn-search']}>search for places</button>
@@ -39,4 +35,4 @@ function Header({handleModal}:ModalProps) {
     );
 }
 
-export default forwardRef(Header); 
+export default Header; 
