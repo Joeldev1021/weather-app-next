@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { forwardRef, Ref, useEffect, useState } from 'react';
+import useFetch from '../hooks/useFetch';
 import styles from '../styles/modal-search.module.css';
 
 type ModalProps ={
@@ -18,49 +19,48 @@ type RefProps = Ref<HTMLDivElement>
 const ModalSearch = ({handleModal}:ModalProps, ref:RefProps) => {
     const [query, setQuery] = useState<string>('');
     const [searchQuery, setSearchQuery] = useState<typeSearch[]>([]);
-    const [cityId, setCityId] = useState<number>(); 
+    const [inputChange, setInputChange] = useState<string>('');
     const route = useRouter();
  
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value);
+        setInputChange(e.target.value);
     };   
     // onsubmit
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        getData(); 
+        //getData();
+        setQuery(inputChange.charAt(0).toUpperCase() + inputChange.slice(1)); 
     };
+
+    const {data} = useFetch(`/api/location/${query}`);
+
     // onclick suggestion
     const handleClick=(n:number)=> {
         route.push(`/${n}`);
     };
-    // get data
-    const getData = async () => {
-        const response = await fetch(`api/location/${query}`);
-        const data = await response.json();
-        setCityId(data.data[0].woeid);
-    }; 
 
     useEffect(() => {
-        if(query.length > 0){
-            fetch(`api/location/${query}`)
+        if(inputChange.length > 0){
+            fetch(`api/location/${inputChange}`)
                 .then(res => res.json())
                 .then(data => setSearchQuery(data.data));
         }else {
             setSearchQuery([]);
         }
-    }, [query]);
+    }, [inputChange]);
 
     useEffect(() => {
-        if(cityId) {
-            route.push(`/${cityId}`);
+        if(data) {
+            console.log(data.data[0].woeid);
+            route.push(`/${data.data[0].woeid}`);
         }
-    }, [cityId, route]);
+    }, [data, route]);
     
     return (
         <div ref={ref} className="modal-search">
             <button onClick={()=> handleModal()} className={styles['modal-close']}>x</button>
             <form className={styles['modal-form']} onSubmit={handleSubmit}>
-                <input onChange={handleChange} value={query} type="text" />
+                <input onChange={handleChange} value={inputChange} type="text" />
                 <button>Search</button>
             </form>
             <div className={styles['container-suggestion']}>
