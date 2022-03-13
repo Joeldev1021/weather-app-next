@@ -17,7 +17,6 @@ const App = ({ data }: Props) => {
     const res: DataWeather = destruData({ data });
     const [dataWeather, setDataWeather] = useState<DataWeather>(res);
     const [isCentigrate, setIsCentigrate] = useState<boolean>(true);
-    console.log(data);
     const ref = useRef<HTMLDivElement>(null);
 
     const handleModal = () => {

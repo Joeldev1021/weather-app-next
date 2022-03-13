@@ -13,7 +13,6 @@ interface Props {
 }
 
 const Banner = ({temperature,isCentigrate, handleModal, day, weatherName, location}:Props) => {
-    console.log(weatherName);
     const img:string = imgWeather[weatherName.toLocaleLowerCase()];
     const [tempToday, setTempToday] = useState(Math.round(temperature));
 
